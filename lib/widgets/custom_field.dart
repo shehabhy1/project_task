@@ -11,6 +11,8 @@ class CustomTextFormField extends StatelessWidget {
     this.onSaved,
     this.validator,
     this.type,
+    this.suffix,
+    required this.isObscure,
   });
   Key? keyField;
   void Function(String?)? onSaved;
@@ -22,7 +24,7 @@ class CustomTextFormField extends StatelessWidget {
   String? label;
   String? hint;
   IconData? prefix;
-  bool isObscure = false;
+  bool isObscure;
   Widget? suffix;
   Function()? pressed;
   Function()? tap;
@@ -36,7 +38,6 @@ class CustomTextFormField extends StatelessWidget {
       padding: const EdgeInsets.only(left: 25, right: 25, top: 20, bottom: 20),
       child: TextFormField(
         key: key,
-        maxLines: null,
         onChanged: onChange,
         validator: validator,
         onSaved: onSaved,
@@ -61,7 +62,7 @@ class CustomTextFormField extends StatelessWidget {
               color: Colors.grey.shade400,
             ),
           ),
-          suffixIcon: Icon(icon),
+          suffixIcon: suffix,
         ),
       ),
     );

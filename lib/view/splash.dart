@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:project_task/view/home.dart';
+import 'package:project_task/view/signup.dart';
 import 'package:project_task/widgets/custom_button.dart';
 import 'package:project_task/widgets/custom_text.dart';
 
@@ -17,7 +18,7 @@ class ViewSplashScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               CustomElevatedButton(
-                onPressed: () => Get.offAll(() => const ViewHome()),
+                onPressed: () => Get.offAll(() => const ViewSignUp()),
                 child: CustomText(text: 'go to'),
               ),
               Stack(

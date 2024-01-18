@@ -70,6 +70,7 @@ flutter:
   assets:
     - lib/assets/img/avatar.jpg
     - lib/assets/img/google.png
+    - lib/assets/img/forget.jpg
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -10,11 +10,6 @@ class ViewHome extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: Text('home'),
-        leading: IconButton(
-            onPressed: () {
-              Get.offAll(() => ViewSignUp());
-            },
-            icon: Icon(Icons.navigate_before)),
       ),
       /* 
       bottom navigation bar

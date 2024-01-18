@@ -1,4 +1,4 @@
-import 'package:flutter/material.dart';
+/* import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import 'controller/signup.dart';
@@ -21,7 +21,6 @@ class ResultScreen extends StatelessWidget {
     phoneNumberController.text = controlSignUp.phoneNumber.value;
 
     return Scaffold(
-      resizeToAvoidBottomInset: false,
       appBar: AppBar(
         title: Text('User Information'),
       ),
@@ -153,3 +152,4 @@ class EditBottomSheet extends StatelessWidget {
     );
   }
 }
+ */

@@ -5,6 +5,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:project_task/view/dashboard.dart';
+import 'package:project_task/view/home.dart';
 import 'package:project_task/view/login.dart';
 
 class ControlSignUp extends GetxController {
@@ -65,7 +67,7 @@ class ControlSignUp extends GetxController {
       });
       user.value = auth.currentUser;
 
-      Get.offAll(() => ViewLogin());
+      Get.to(() => ViewLogin());
     } catch (e) {
       //isLoading.value = false;
       Get.snackbar('Error', e.toString());

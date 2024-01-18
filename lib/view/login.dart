@@ -1,14 +1,18 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:project_task/controller/login.dart';
+import 'package:project_task/view/forget_password.dart';
+import 'package:project_task/view/signup.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_field.dart';
 import '../widgets/custom_text.dart';
 
 class ViewLogin extends StatelessWidget {
-  const ViewLogin({super.key});
-
+  ViewLogin({super.key});
+  final put = Get.put(ControlLogin());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,14 +25,31 @@ class ViewLogin extends StatelessWidget {
                 controller: TextEditingController(),
                 keyField: GlobalKey(),
                 label: 'email',
+                isObscure: false,
               ),
               SizedBox(
                 height: 10,
               ),
-              CustomTextFormField(
-                controller: TextEditingController(),
-                keyField: GlobalKey(),
-                label: 'password',
+              GetBuilder<ControlLogin>(
+                builder: (read) => CustomTextFormField(
+                  suffix: InkWell(
+                    onTap: () {
+                      read.togglePasswordVisibility();
+                    },
+                    child: Padding(
+                      padding: const EdgeInsets.only(right: 20),
+                      child: Icon(
+                        read.isPasswordVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: Colors.black,
+                      ),
+                    ),
+                  ),
+                  controller: put.password,
+                  label: 'password',
+                  isObscure: !read.isPasswordVisible,
+                ),
               ),
               SizedBox(
                 height: 10,
@@ -48,7 +69,30 @@ class ViewLogin extends StatelessWidget {
                 height: 15,
               ),
               //sign up => blue
-              CustomText(text: "don't have an account? sign up"),
+              Row(
+                children: [
+                  SizedBox(
+                    width: 50,
+                  ),
+                  CustomText(text: "don't have an account?"),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  GestureDetector(
+                    onTap: () => Get.off(() => ViewSignUp()),
+                    child: CustomText(
+                      text: 'sign up',
+                      color: Colors.blue,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 15,
+              ),
+              GestureDetector(
+                  onTap: () => Get.offAll(() => ViewForgetPassword()),
+                  child: CustomText(text: 'forget password'))
             ],
           ),
         ),
